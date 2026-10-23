@@ -1,0 +1,72 @@
+{
+  "info": {
+    "name": "ЛР 4 – Сервис 1 и Сервис 2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01 Запрос в Сервис 1 (пересылка в Сервис 2)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"uid\": \"1\",\n  \"operationUid\": \"op-1\",\n  \"systemName\": \"ERP\",\n  \"systemTime\": \"{{$isoTimestamp}}\",\n  \"source\": \"web\",\n  \"communicationId\": 100,\n  \"templateId\": 8,\n  \"productCode\": 1500,\n  \"smsCode\": 10\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/feedback",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "feedback"
+          ]
+        }
+      }
+    },
+    {
+      "name": "02 Ошибка валидации (в Сервис 2 не пересылается)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"uid\": \"\",\n  \"operationUid\": \"op-1\",\n  \"systemName\": \"ERP\",\n  \"systemTime\": \"{{$isoTimestamp}}\",\n  \"source\": \"web\",\n  \"communicationId\": 0,\n  \"templateId\": 8,\n  \"productCode\": 1500,\n  \"smsCode\": 10\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8082/feedback",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "feedback"
+          ]
+        }
+      }
+    }
+  ]
+}

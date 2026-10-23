@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Корневой проект только объединяет два сервиса, чтобы открыть их в IDEA одним окном -->
+    <groupId>ru.urabov</groupId>
+    <artifactId>spring-boot-lab4</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>spring-boot-lab4</name>
+
+    <modules>
+        <module>service1</module>
+        <module>service2</module>
+    </modules>
+</project>
